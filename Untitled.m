@@ -28,10 +28,10 @@ for i = 1:loop
     fprintf("f(x,y) = %f\t", f_val(i))
     fprintf("g(x,y) = %f\n\n", g_val(i))
 
-    fx_fxy(end+1) = subs(diff(fxy,x),x,x_val(i));
-    fy_fxy(end+1) = subs(diff(fxy,y),y,y_val(i));
-    gx_gxy(end+1) = subs(diff(gxy,x),x,x_val(i));
-    gy_gxy(end+1) = subs(diff(gxy,y),y,y_val(i));
+    fx_fxy(end+1) = subs(subs(diff(fxy,x),x,x_val(i)),y,y_val(i));
+    fy_fxy(end+1) = subs(subs(diff(fxy,y),x,x_val(i)),y,y_val(i));
+    gx_gxy(end+1) = subs(subs(diff(gxy,x),x,x_val(i)),y,y_val(i));
+    gy_gxy(end+1) = subs(subs(diff(gxy,y),x,x_val(i)),y,y_val(i));
 
     fprintf("fx(x,y) = %f\t", fx_fxy(i));
     fprintf("fy(x,y) = %f\t", fy_fxy(i));
